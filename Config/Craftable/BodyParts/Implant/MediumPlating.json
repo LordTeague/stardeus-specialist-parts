@@ -1,0 +1,31 @@
+{
+    "Type" : "Robotics2",
+    "ProductDefId" : "Obj/Parts/Implant/MediumPlating",
+    "ProductionTimeHours" : 24,
+    "EnergyCost" : 30,
+    "IgnoreMarket" : true,
+    "Ingredients" : [
+        { "TypeId" : "TitaniumPlate", "StackSize" : 2 },
+        { "TypeId" : "LeadPlate", "StackSize" : 2 },
+        { "TypeId" : "Transistor", "StackSize" : 3 },
+        { "TypeId" : "SilverIngot", "StackSize" : 1 }
+    ],
+	"ProvidesStats" : [
+        {
+            "Component" : "Dexterity",
+            "Properties" : [
+                { "Key" : "Amount", "Float" : -0.1 },
+                { "Key" : "CompoundLimit", "Float" : 1.0 },
+                { "Key" : "StateMul", "Float" : 0.6 }
+            ]
+        },
+        {
+            "Component" : "CarryCapacity",
+            "Properties" : [
+                { "Key" : "Amount", "Float" : -100 },
+                { "Key" : "CompoundLimit", "Float" : 0 },
+                { "Key" : "StateMul", "Float" : 1 }
+            ]
+        }
+	]
+}

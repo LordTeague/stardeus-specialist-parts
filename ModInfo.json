@@ -1,0 +1,9 @@
+{
+    "Id" : "SpecialParts",
+    "SteamWorkshop" : true,
+    "Name" : "Specialist Parts",
+    "Description" : "Adds specialist parts geared for specific tasks.",
+    "ModVersion" : "1.1.0",
+    "GameVersion" : "0.12.*",
+    "Dependencies" : [ "Core" ]
+}

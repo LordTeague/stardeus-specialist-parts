@@ -1,0 +1,8 @@
+{
+    "Id" : "Obj/Parts/Hand/DrillHand",
+    "Type" : "CFD",
+    "Groups" : [ "BodyPart", "Robotics" ],
+    "Value" : 300.0,
+    "Rarity" : 0.05,
+    "Volatility" : 0.00135
+}

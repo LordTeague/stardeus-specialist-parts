@@ -1,0 +1,15 @@
+{
+    "Type" : "Robotics2",
+    "ProductDefId" : "Obj/Parts/Hand/DrillHand",
+    "ProductionTimeHours" : 12,
+    "EnergyCost" : 25,
+    "IgnoreMarket" : true,
+    "Ingredients" : [
+        { "TypeId" : "TitaniumPlate", "StackSize" : 5 },
+        { "TypeId" : "Transistor", "StackSize" : 10 },
+        { "TypeId" : "Gears", "StackSize" : 30 },
+        { "TypeId" : "GoldWire", "StackSize" : 5 },
+        { "TypeId" : "LeadPlate", "StackSize" : 5 },	
+        { "TypeId" : "Microchip", "StackSize" : 1 }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "Type" : "Robotics3",
+    "ProductDefId" : "Obj/Parts/Implant/HeavyPlating",
+    "ProductionTimeHours" : 24,
+    "EnergyCost" : 50,
+    "IgnoreMarket" : true,
+    "Ingredients" : [
+        { "TypeId" : "TitaniumPlate", "StackSize" : 3 },
+        { "TypeId" : "LeadPlate", "StackSize" : 4 },
+        { "TypeId" : "Microchip", "StackSize" : 1 },
+        { "TypeId" : "GoldIngot", "StackSize" : 1 }
+    ]
+}

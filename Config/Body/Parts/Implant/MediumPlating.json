@@ -1,0 +1,54 @@
+{
+    "SlotTypeId" : "Implant",
+    "Compatibility" : "Robotic",
+    "ResistanceBase" : 8.0,
+    "Tier" : 4,
+	"AddsStatModifiers" : [
+		{
+            "Component" : "ArmorSharp",
+            "Properties" : [
+                { "Key" : "StateMul", "Float" : 1.0 },
+                { "Key" : "Value", "Float" : 4 },
+                { "Key" : "Type", "String" : "Adds" }
+            ]
+        },
+        {
+            "Component" : "ArmorPiercing",
+            "Properties" : [
+                { "Key" : "StateMul", "Float" : 1.0 },
+                { "Key" : "Value", "Float" : 3 },
+                { "Key" : "Type", "String" : "Adds" }
+            ]
+        },
+        {
+            "Component" : "ArmorBlunt",
+            "Properties" : [
+                { "Key" : "StateMul", "Float" : 1.0 },
+                { "Key" : "Value", "Float" : 4 },
+                { "Key" : "Type", "String" : "Adds" }
+            ]
+        },
+        {
+            "Component" : "ArmorEnergy",
+            "Properties" : [
+                { "Key" : "StateMul", "Float" : 1.0 },
+                { "Key" : "Value", "Float" : 4 },
+                { "Key" : "Type", "String" : "Adds" }
+            ]
+        }
+	],
+	"ProvidesStats" : [
+        {
+            "Component" : "Dexterity",
+            "Properties" : [
+                { "Key" : "Amount", "Float" : -0.1 }
+            ]
+        },
+        {
+            "Component" : "CarryCapacity",
+            "Properties" : [
+                { "Key" : "Amount", "Float" : -100 }
+            ]
+        }
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"target" : "Config/Jobs/Demolition.json",
+	"operations" : [
+		{
+			"op" : "add",
+			"path" : "EnabledByAbilities",
+			"value" : "Destroy"
+		}
+	]
+}

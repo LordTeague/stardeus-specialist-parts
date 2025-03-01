@@ -1,0 +1,55 @@
+{
+    "SlotTypeId" : "Hand",
+    "Compatibility" : "Any",
+    "Tier" : 2,
+    "AddsAbilities" : [
+        "Harvest",
+        "Destroy"
+    ],
+    "ResistanceBase" : 8.0,
+    "ProvidesStats" : [
+        {
+            "Component" : "Dexterity",
+            "Properties" : [
+                { "Key" : "Amount", "Float" : 0.20 },
+                { "Key" : "CompoundLimit", "Float" : 1.0 },
+                { "Key" : "StateMul", "Float" : 0.6 }
+            ]
+        },
+        {
+            "Component" : "CarryCapacity",
+            "Properties" : [
+                { "Key" : "Amount", "Float" : 0 },
+                { "Key" : "CompoundLimit", "Float" : 0 },
+                { "Key" : "StateMul", "Float" : 0.6 }
+            ]
+        }
+    ],
+    "AddsAttackMethods" : [
+        {
+            "Component" : "Buzzsaw",
+            "Properties" : [
+                { "Key" : "AttackAction", "String" : "Melee" },
+                { "Key" : "DPS", "Float" : 3.5 },
+                { "Key" : "AttackType", "String" : "Sharp" },
+                { "Key" : "ChargeSec", "Float" : 0.5 },
+                { "Key" : "CooldownSec", "Float" : 0.1 },
+                { "Key" : "MoveSpeedMul", "Float" : 0.5 },
+                { "Key" : "StunChanceBio", "Float" : 0.9 },
+                { "Key" : "StunChanceRobo", "Float" : 0 },
+                { "Key" : "BleedChance", "Float" : 0.9 },
+                { "Key" : "AccuracyMax", "Float" : 0.8 }
+            ]
+        }
+    ],
+    "AdjustsSkills" : [
+        {
+            "JobId" : "Plants",
+            "Adjustment" : 2
+        },
+        {
+            "JobId" : "Demolition",
+            "Adjustment" : 1
+        }
+    ]
+}

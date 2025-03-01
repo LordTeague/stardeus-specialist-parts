@@ -1,0 +1,47 @@
+{
+    "Layer" : "FreeEntities",
+    "ParentId" : "Obj/Parts/BasePartRobotic",
+    "NameKey" : "bodypart.Implant.HeavyPlating",
+    "Researchable" : {
+        "Prerequisites" : [ "Research/Robotics/PartsAdvanced" ]
+    },
+    "Components" : [
+        {
+            "Component" : "ObjGraphics",
+            "Properties" : [
+                { "Key" : "Graphic", "String": "Obj/BodyParts/Robotic3" }
+            ]
+        },
+        {
+            "Component" : "BodyPart",
+            "Properties" : [
+                { "Key" : "BodyPartDefId", "String" : "Implant/HeavyPlating" }
+            ]
+        }
+    ],
+	"ProvidesStats" : [
+        {
+            "Component" : "Dexterity",
+            "Properties" : [
+                { "Key" : "Amount", "Float" : -0.2 },
+                { "Key" : "CompoundLimit", "Float" : 1.0 },
+                { "Key" : "StateMul", "Float" : 0.6 }
+            ]
+        },
+        {
+            "Component" : "CarryCapacity",
+            "Properties" : [
+                { "Key" : "Amount", "Float" : -200 },
+                { "Key" : "CompoundLimit", "Float" : 0 },
+                { "Key" : "StateMul", "Float" : 1 }
+            ]
+        },
+		{
+            "Component" : "MoveSpeed",
+            "Properties" : [
+                { "Key" : "AmountPerMinute", "Float" : -0.2 },
+                { "Key" : "StateMul", "Float" : 1.0 }
+            ]
+        }
+	]
+}

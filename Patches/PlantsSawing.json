@@ -1,0 +1,10 @@
+{
+	"target" : "Config/Jobs/Plants.json",
+	"operations" : [
+		{
+			"op" : "add",
+			"path" : "EnabledByAbilities",
+			"value" : "Harvest"
+		}
+	]
+}

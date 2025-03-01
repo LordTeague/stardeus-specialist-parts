@@ -1,0 +1,14 @@
+{
+    "Type" : "Robotics1",
+    "ProductDefId" : "Obj/Parts/Hand/SawHand",
+    "ProductionTimeHours" : 8,
+    "EnergyCost" : 15,
+    "IgnoreMarket" : true,
+    "Ingredients" : [
+        { "TypeId" : "TitaniumPlate", "StackSize" : 5 },
+        { "TypeId" : "Transistor", "StackSize" : 5 },
+        { "TypeId" : "Gears", "StackSize" : 15 },
+        { "TypeId" : "CopperWire", "StackSize" : 10 },
+        { "TypeId" : "SteelPlate", "StackSize" : 3 }
+    ]
+}

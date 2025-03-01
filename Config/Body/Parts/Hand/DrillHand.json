@@ -1,0 +1,70 @@
+{
+    "SlotTypeId" : "Hand",
+    "Compatibility" : "Any",
+    "Tier" : 3,
+    "AddsAbilities" : [
+        "Mine",
+        "Destroy"
+    ],
+    "ResistanceBase" : 12.0,
+    "ProvidesStats" : [
+        {
+            "Component" : "Dexterity",
+            "Properties" : [
+                { "Key" : "Amount", "Float" : 0.10 },
+                { "Key" : "CompoundLimit", "Float" : 1.0 },
+                { "Key" : "StateMul", "Float" : 0.6 }
+            ]
+        },
+        {
+            "Component" : "CarryCapacity",
+            "Properties" : [
+                { "Key" : "Amount", "Float" : 0 },
+                { "Key" : "CompoundLimit", "Float" : 0 },
+                { "Key" : "StateMul", "Float" : 0.6 }
+            ]
+        }
+    ],
+    "AddsAttackMethods" : [
+        {
+            "Component" : "Drill",
+            "Properties" : [
+                { "Key" : "AttackAction", "String" : "Melee" },
+                { "Key" : "DPS", "Float" : 5.0 },
+                { "Key" : "AttackType", "String" : "Piercing" },
+                { "Key" : "ChargeSec", "Float" : 0.5 },
+                { "Key" : "CooldownSec", "Float" : 0.1 },
+                { "Key" : "MoveSpeedMul", "Float" : 0.25 },
+                { "Key" : "StunChanceBio", "Float" : 0.7 },
+                { "Key" : "StunChanceRobo", "Float" : 0.8 },
+                { "Key" : "BleedChance", "Float" : 0.2 },
+                { "Key" : "AccuracyMax", "Float" : 0.75 }
+            ]
+        },
+		{
+            "Component" : "Bash",
+            "Properties" : [
+                { "Key" : "AttackAction", "String" : "Melee" },
+                { "Key" : "DPS", "Float" : 4.9 },
+                { "Key" : "AttackType", "String" : "Blunt" },
+                { "Key" : "ChargeSec", "Float" : 3.0 },
+                { "Key" : "CooldownSec", "Float" : 3.0 },
+                { "Key" : "MoveSpeedMul", "Float" : 0.05 },
+                { "Key" : "StunChanceBio", "Float" : 0.9 },
+                { "Key" : "StunChanceRobo", "Float" : 0.1 },
+                { "Key" : "BleedChance", "Float" : 0.1 },
+                { "Key" : "AccuracyMax", "Float" : 0.75 }
+            ]
+        }
+    ],
+    "AdjustsSkills" : [
+        {
+            "JobId" : "Mining",
+            "Adjustment" : 3
+        },
+        {
+            "JobId" : "Demolition",
+            "Adjustment" : 2
+        }
+    ]
+}

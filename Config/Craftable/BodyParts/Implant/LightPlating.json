@@ -1,0 +1,12 @@
+{
+    "Type" : "Robotics1",
+    "ProductDefId" : "Obj/Parts/Implant/LightPlating",
+    "ProductionTimeHours" : 12,
+    "EnergyCost" : 15,
+    "IgnoreMarket" : true,
+    "Ingredients" : [
+        { "TypeId" : "SteelPlate", "StackSize" : 3 },
+        { "TypeId" : "TitaniumPlate", "StackSize" : 2 },
+        { "TypeId" : "Transistor", "StackSize" : 1 }
+    ]
+}
