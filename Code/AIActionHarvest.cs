@@ -11,6 +11,7 @@ using KL.Utils;
 using UnityEngine;
 
 namespace Game.Systems.AI {
+	// Minimally modified version from core sample code for reference.
     public sealed class AIActionHarvest : AIAction {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void Register() {
@@ -24,7 +25,17 @@ namespace Game.Systems.AI {
 
             Outcomes = AIState.With(AIVarsH.IsHarvested, true);
             IsQuiet = true;
-            WithRequiredAbilities(AbilityIdH.Work, AbilityIdH.Manipulate);
+            //Further modifications require a better, nonhardcoded way to modify this, but I just want to see if this works.
+            Ability externalAbility = Ability.Get("Harvest");
+            if (externalAbility != null) {
+                WithRequiredAbilities(AbilityIdH.Work);
+                WithRequiredOneOfAbilities(AbilityIdH.Manipulate, externalAbility.IdH);
+            }
+            else {
+                //Original Code
+                WithRequiredAbilities(AbilityIdH.Work, AbilityIdH.Manipulate);
+				WithoutRequiredOneOfAbilities();
+            }
             WithRequiredJobType(JobTypeIdH.Plants);
         }
 

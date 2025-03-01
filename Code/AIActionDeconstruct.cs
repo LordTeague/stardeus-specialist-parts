@@ -13,6 +13,7 @@ using KL.Utils;
 using UnityEngine;
 
 namespace Game.Systems.AI {
+	// Minimally modified version from core sample code for reference.
     public sealed class AIActionDeconstruct : AIAction {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void Register() {
@@ -25,7 +26,17 @@ namespace Game.Systems.AI {
                 .And(AIVarsH.IsDeconstructed, false);
 
             Outcomes = AIState.With(AIVarsH.IsDeconstructed, true);
-            WithRequiredAbilities(AbilityIdH.Build, AbilityIdH.Move, AbilityIdH.Work);
+            //Further modifications require a better, nonhardcoded way to modify this, but I just want to see if this works.
+            Ability externalAbility = Ability.Get("Destroy");
+            if (externalAbility != null) {
+                WithRequiredAbilities(AbilityIdH.Move, AbilityIdH.Work);
+                WithRequiredOneOfAbilities(AbilityIdH.Build, externalAbility.IdH);
+            }
+            else {
+                //Original Code
+                WithRequiredAbilities(AbilityIdH.Build, AbilityIdH.Move, AbilityIdH.Work);
+				WithoutRequiredOneOfAbilities();
+            }
             WithRequiredJobType(JobTypeIdH.Demolition);
         }
         public override void OnActivate(AIAgentComp agent, AIGoal goal, long ticks) {

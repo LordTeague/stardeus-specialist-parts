@@ -21,6 +21,7 @@ namespace Game.Systems.AI {
     // Action descriptor
     // One instance per action type will be shared by every agent
     // NO STATE!!!! STATELESS ONLY!!
+	// Minimally modified version from core sample code for reference.
     public abstract class AIAction {
         public string Id;
         public int IdH;
@@ -30,9 +31,11 @@ namespace Game.Systems.AI {
         public AIState Preconditions;
         public AIState Outcomes;
         public FrugalArray<int> RequiredAbilities;
+        public FrugalArray<int> RequiredOneOfAbilities;
         public int RequiredNeed;
         public int JobType;
         public bool DoesNotRequireAbilities;
+        public bool DoesNotRequireOneOfAbilities;
         public bool IsQuiet;
         public StatFlags FlagsRequired;
         public StatFlags FlagsForbidden;
@@ -97,6 +100,23 @@ namespace Game.Systems.AI {
         }
         protected AIAction WithRequiredAbilities(int a1, int a2, int a3) {
             RequiredAbilities = new FrugalArray<int>(a1, a2, a3);
+            return this;
+        }
+        protected AIAction WithoutRequiredOneOfAbilities() {
+            DoesNotRequireOneOfAbilities = true;
+            return this;
+        }
+        protected AIAction WithRequiredOneOfAbilities(int a1) {
+            RequiredOneOfAbilities = new FrugalArray<int>(a1);
+            return this;
+        }
+        protected AIAction WithRequiredOneOfAbilities(int a1, int a2) {
+            RequiredOneOfAbilities = new FrugalArray<int>(a1, a2);
+            return this;
+        }
+
+        protected AIAction WithRequiredOneOfAbilities(int a1, int a2, int a3) {
+            RequiredOneOfAbilities = new FrugalArray<int>(a1, a2, a3);
             return this;
         }
 
@@ -363,6 +383,7 @@ namespace Game.Systems.AI {
 
         public bool IsAvailableFor(AIAgentComp agent) {
             var ra = RequiredAbilities;
+            var rooa = RequiredOneOfAbilities;
             if (JobType != 0) {
                 if (agent.Jobs.TryJob(JobType, out var job)) {
                     if (job.Incapable) {
@@ -398,6 +419,24 @@ namespace Game.Systems.AI {
                     }
                 }
             }
+            if (rooa.Length == 0) {
+                if (!DoesNotRequireOneOfAbilities) {
+                    //D.Err("AIAction misconfigured, no RequiredOneOfAbilities! Not adding it: {0}", Id);
+                    //Really don't feel like configuring this for literally every ability, so defaulting it to true here instead.
+                    this.WithoutRequiredOneOfAbilities();
+                    return true; //false;
+                }
+            }
+            else {
+				//Inverted For Loop Logic--check if any ability matches rather than all. 
+                for (int i = 0; i < rooa.Length; i++) {
+                    if (AbilitySource.ExistsFor(agent.BeingData, rooa[i])) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
             return true;
         }
 

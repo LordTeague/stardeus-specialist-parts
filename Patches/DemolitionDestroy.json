@@ -2,9 +2,13 @@
 	"target" : "Config/Jobs/Demolition.json",
 	"operations" : [
 		{
+			"op" : "remove",
+			"path" : "EnabledByAbilities"
+		},
+		{
 			"op" : "add",
-			"path" : "EnabledByAbilities",
-			"value" : "Destroy"
+			"path" : "RequiresOneOfAbilities",
+			"value" : "[\"Build\", \"Destroy\"]"
 		}
 	]
 }
