@@ -1,5 +1,5 @@
 {
-    "Id" : "Obj/Parts/Implant/MediumPlating",
+    "Id" : "Obj/Parts/Implant/HeavyPlating",
     "Type" : "CFD",
     "Groups" : [ "BodyPart", "Robotics" ],
     "Value" : 1500.0,
