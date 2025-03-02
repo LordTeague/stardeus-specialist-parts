@@ -27,8 +27,7 @@ namespace Specialist_Parts.AI {
             Outcomes = AIState.With(AIVarsH.IsHarvested, true);
             IsQuiet = true;
             //Further modifications require a better, nonhardcoded way to modify this, but I just want to see if this works.
-            Ability externalAbility = Ability.Get("Harvest");
-            WithRequiredAbilities(externalAbility.IdH, AbilityIdH.Work);
+            WithRequiredAbilities(Hashes.S("Harvest"), AbilityIdH.Work);
             WithRequiredJobType(JobTypeIdH.Plants);
         }
 

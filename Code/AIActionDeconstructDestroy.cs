@@ -28,8 +28,7 @@ namespace Specialist_Parts.AI {
 
             Outcomes = AIState.With(AIVarsH.IsDeconstructed, true);
             //Originally tried overriding the base version, but then I realized that if I want an "OR" situation, I can just make a new class. 
-            Ability externalAbility = Ability.Get("Destroy");
-            WithRequiredAbilities(externalAbility.IdH, AbilityIdH.Move, AbilityIdH.Work);
+            WithRequiredAbilities(Hashes.S("Destroy"), AbilityIdH.Move, AbilityIdH.Work);
             WithRequiredJobType(JobTypeIdH.Demolition);
         }
         public override void OnActivate(AIAgentComp agent, AIGoal goal, long ticks) {
