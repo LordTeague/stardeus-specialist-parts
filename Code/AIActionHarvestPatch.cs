@@ -10,7 +10,7 @@ namespace Specialist_Parts.Patches
         {
             private static int workIdh = Ability.Get("Work").IdH;
             private static int harvestIdh = Ability.Get("Harvest").IdH;
-            private static int manipulateIdh = A0bility.Get("Manipulate").IdH;
+            private static int manipulateIdh = Ability.Get("Manipulate").IdH;
             [HarmonyPrefix]
             private static bool Prefix(ref bool __result, AIAgentComp agent, AIActionHarvest __instance)
             {
