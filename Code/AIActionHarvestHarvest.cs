@@ -2,6 +2,7 @@ using System;
 using Game.Components;
 using Game.Constants;
 using Game.Data;
+using Game.Systems.AI;
 using Game.Utils;
 using Game.CodeGen;
 using Game.Visuals;
@@ -10,15 +11,15 @@ using KL.Randomness;
 using KL.Utils;
 using UnityEngine;
 
-namespace Game.Systems.AI {
+namespace Specialist_Parts.AI {
 	// Minimally modified version from core sample code for reference.
-    public sealed class AIActionHarvest : AIAction {
+    public sealed class AIActionHarvestHarvest : AIAction {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void Register() {
-            RegisterAction(new AIActionHarvest());
+            RegisterAction(new AIActionHarvestHarvest());
         }
         public const string ActId = "Harvest";
-        private AIActionHarvest() : base(ActId, () => T.ActHarvestplant) {
+        private AIActionHarvestHarvest() : base(ActId, () => T.ActHarvestplant) {
             Preconditions = AIState
                 .With(AIVarsH.IsNear, true)
                 .And(AIVarsH.IsHarvested, false);
@@ -27,15 +28,7 @@ namespace Game.Systems.AI {
             IsQuiet = true;
             //Further modifications require a better, nonhardcoded way to modify this, but I just want to see if this works.
             Ability externalAbility = Ability.Get("Harvest");
-            if (externalAbility != null) {
-                WithRequiredAbilities(AbilityIdH.Work);
-                WithRequiredOneOfAbilities(AbilityIdH.Manipulate, externalAbility.IdH);
-            }
-            else {
-                //Original Code
-                WithRequiredAbilities(AbilityIdH.Work, AbilityIdH.Manipulate);
-				WithoutRequiredOneOfAbilities();
-            }
+            WithRequiredAbilities(externalAbility.IdH, AbilityIdH.Work);
             WithRequiredJobType(JobTypeIdH.Plants);
         }
 

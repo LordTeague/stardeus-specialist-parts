@@ -15,14 +15,6 @@
                 { "Key" : "CompoundLimit", "Float" : 1.0 },
                 { "Key" : "StateMul", "Float" : 0.6 }
             ]
-        },
-        {
-            "Component" : "CarryCapacity",
-            "Properties" : [
-                { "Key" : "Amount", "Float" : 0 },
-                { "Key" : "CompoundLimit", "Float" : 0 },
-                { "Key" : "StateMul", "Float" : 0.6 }
-            ]
         }
     ],
     "AddsAttackMethods" : [

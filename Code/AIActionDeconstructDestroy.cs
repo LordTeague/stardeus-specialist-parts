@@ -2,6 +2,7 @@ using System;
 using Game.Components;
 using Game.Constants;
 using Game.Data;
+using Game.Systems.AI;
 using Game.Systems.AI.Combat;
 using Game.Systems.Path;
 using Game.Utils;
@@ -12,31 +13,23 @@ using KL.Randomness;
 using KL.Utils;
 using UnityEngine;
 
-namespace Game.Systems.AI {
+namespace Specialist_Parts.AI {
 	// Minimally modified version from core sample code for reference.
-    public sealed class AIActionDeconstruct : AIAction {
+    public sealed class AIActionDeconstructDestroy : AIAction {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void Register() {
-            RegisterAction(new AIActionDeconstruct());
+            RegisterAction(new AIActionDeconstructDestroy());
         }
         public const string ActId = "Deconstruct";
-        private AIActionDeconstruct() : base(ActId, () => T.ActDeconstruct) {
+        private AIActionDeconstructDestroy() : base(ActId, () => T.ActDeconstruct) {
             Preconditions = AIState
                 .With(AIVarsH.IsNear, true)
                 .And(AIVarsH.IsDeconstructed, false);
 
             Outcomes = AIState.With(AIVarsH.IsDeconstructed, true);
-            //Further modifications require a better, nonhardcoded way to modify this, but I just want to see if this works.
+            //Originally tried overriding the base version, but then I realized that if I want an "OR" situation, I can just make a new class. 
             Ability externalAbility = Ability.Get("Destroy");
-            if (externalAbility != null) {
-                WithRequiredAbilities(AbilityIdH.Move, AbilityIdH.Work);
-                WithRequiredOneOfAbilities(AbilityIdH.Build, externalAbility.IdH);
-            }
-            else {
-                //Original Code
-                WithRequiredAbilities(AbilityIdH.Build, AbilityIdH.Move, AbilityIdH.Work);
-				WithoutRequiredOneOfAbilities();
-            }
+            WithRequiredAbilities(externalAbility.IdH, AbilityIdH.Move, AbilityIdH.Work);
             WithRequiredJobType(JobTypeIdH.Demolition);
         }
         public override void OnActivate(AIAgentComp agent, AIGoal goal, long ticks) {
